@@ -2,12 +2,88 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Change Calculator</title>
+    <title>CHANGE CALCULATOR</title>
+
+    <!--=============================-->
+    <!-- CSS and other head elements -->
+    <!--=============================-->
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/main.js" defer></script>
   </head>
-  <body>
-    <!-- Write your markup here -->
+    
+    <!--========================-->
+    <!-- Main Calculator Layout -->
+    <!--========================-->
+    <body>  
+      <main>
+        <div class="calculator-container">
+          <h1>Change Calculator</h1>
+          <!--================-->
+          <!-- Input Controls -->
+          <!--================-->
+          <div class="calculator-container">
+            <div class="input-group">
+              <label for="amount-due">Amount Due:</label>
+              <input type="number" id="amount-due" step="0.01" placeholder="0.00">
+            </div>
 
-    <!-- Don't forget to add your <script> tag here -->
+            <div class="input-group">
+              <label for="amount-received">Amount Received</label>
+              <input type="number" id="amount-received" step="0.01" placeholder="0.00">
+            </div>
 
-  </body>
-</html>
+            <button id="calculate-change">Calculate Change</button>
+          </div>
+
+          <!--================-->
+          <!-- Output Display -->
+          <!--================-->
+          <div class="output-section">
+            <h2>Change Due: <span id="total-change">$0.00</span></h2>
+          
+            <div class="denominations">
+              <div class="denomination">
+                <h3>Twenties</h3>
+                <p id="twenties">0</p>
+              </div>
+          
+              <div class="denomination">
+                <h3>Tens</h3>
+                <p id="tens">0</p>
+              </div>
+          
+              <div class="denomination">
+                <h3>Fives</h3>
+                <p id="fives">0</p>
+              </div>
+          
+              <div class="denomination">
+                <h3>Ones</h3>
+                <p id="ones">0</p>
+              </div>
+          
+              <div class="denomination">
+                <h3>Quarters</h3>
+                <p id="quarters">0</p>
+              </div>
+          
+              <div class="denomination">
+                <h3>Dimes</h3>
+                <p id="dimes">0</p>
+              </div>
+          
+              <div class="denomination">
+                <h3>Nickels</h3>
+                <p id="nickels">0</p>
+              </div>
+          
+              <div class="denomination">
+                <h3>Pennies</h3>
+                <p id="pennies">0</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </body>  
+  </html>
