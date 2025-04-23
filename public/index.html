@@ -1,88 +1,92 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>CHANGE CALCULATOR</title>
+    <head>
+        <meta charset="utf-8">
+        <title>CHANGE CALCULATOR</title>
 
-    <!--=============================-->
-    <!-- CSS and other head elements -->
-    <!--=============================-->
-    <link rel="stylesheet" href="css/styles.css" />
-    <script src="js/main.js" defer></script>
-  </head>
-    
-  <body>  
-    <main>
-      <div class="calculator-container">
-        <h1>Change Calculator</h1>
-        
-        <!--================-->
-        <!-- Input Controls -->
-        <!--================-->
-        <div class="input-section">
-          <div class="input-group">
-            <label for="amount-due">Amount Due:</label>
-            <input type="number" id="amount-due" step="0.01" placeholder="0.00">
-          </div>
-          
-          <div class="input-group">
-            <label for="amount-received">Amount Received:</label>
-            <input type="number" id="amount-received" step="0.01" placeholder="0.00">
-          </div>
-          
-          <button id="calculate-change">Calculate Change</button>
-          <button id="reset-calculation">Reset</button>
+        <!--=============================-->
+        <!-- CSS and other head elements -->
+        <!--=============================-->
+        <link rel="stylesheet" href="css/styles.css" />
+        <script src="js/main.js" defer></script>
+    </head>
+
+    <body>
+    <!-- Main structure for the new layout -->
+    <div class="calculator-container">
+        <!-- Left section: Display and number pad -->
+        <div class="register-left">
+            <!-- Digital display -->
+            <div class="digital-display">
+                <div class="display-amount">$0.00</div>
+            </div>
+
+            <!-- Number pad -->
+            <div class="number-pad">
+                <button class="num-btn">7</button>
+                <button class="num-btn">8</button>
+                <button class="num-btn">9</button>
+                <button class="num-btn">4</button>
+                <button class="num-btn">5</button>
+                <button class="num-btn">6</button>
+                <button class="num-btn">1</button>
+                <button class="num-btn">2</button>
+                <button class="num-btn">3</button>
+                <button class="num-btn">0</button>
+                <button class="num-btn">.</button>
+                <button class="reset-btn">C</button>
+            </div>
+            <button id="calculate-change">Total Change Due</button>
         </div>
-        
-        <!--================-->
-        <!-- Output Display -->
-        <!--================-->
-        <div class="output-section">
-          <h2>Change Due: <span id="total-change">$0.00</span></h2>
-          
-          <div class="denominations">
-            <div class="denomination">
-              <h3>Twenties</h3>
-              <p id="twenties">0</p>
+
+        <!-- Right section: Receipt -->
+        <div class="register-right">
+            <div class="receipt">
+                <div class="receipt-header">CHANGE DUE</div>
+                <div class="receipt-item">
+                    <span class="item-name">Twenties</span>
+                    <span id="twenties">0</span>
+                </div>
+                <div class="receipt-item">
+                    <span class="item-name">Tens</span>
+                    <span id="tens">0</span>
+                </div>
+                <div class="receipt-item">
+                    <span class="item-name">Fives</span>
+                    <span id="fives">0</span>
+                </div>
+                <div class="receipt-item">
+                    <span class="item-name">Ones</span>
+                    <span id="ones">0</span>
+                </div>
+                <div class="receipt-item">
+                    <span class="item-name">Quarters</span>
+                    <span id="quarters">0</span>
+                </div>
+                <div class="receipt-item">
+                    <span class="item-name">Dimes</span>
+                    <span id="dimes">0</span>
+                </div>
+                <div class="receipt-item">
+                    <span class="item-name">Nickels</span>
+                    <span id="nickels">0</span>
+                </div>
+                <div class="receipt-item">
+                    <span class="item-name">Pennies</span>
+                    <span id="pennies">0</span>
+                </div>
             </div>
-            
-            <div class="denomination">
-              <h3>Tens</h3>
-              <p id="tens">0</p>
-            </div>
-            
-            <div class="denomination">
-              <h3>Fives</h3>
-              <p id="fives">0</p>
-            </div>
-            
-            <div class="denomination">
-              <h3>Ones</h3>
-              <p id="ones">0</p>
-            </div>
-            
-            <div class="denomination">
-              <h3>Quarters</h3>
-              <p id="quarters">0</p>
-            </div>
-            
-            <div class="denomination">
-              <h3>Dimes</h3>
-              <p id="dimes">0</p>
-            </div>
-            
-            <div class="denomination">
-              <h3>Nickels</h3>
-              <p id="nickels">0</p>
-            </div>
-            
-            <div class="denomination">
-              <h3>Pennies</h3>
-              <p id="pennies">0</p>
-            </div>
-          </div>
         </div>
-      </div>
-    </main>
-  </body>
+
+        <!-- Cash drawer section -->
+        <div class="cash-drawer">
+            <div class="bills-section">
+                <!-- Bill denominations -->
+            </div>
+            <div class="coins-section">
+                <!-- Coin denominations -->
+            </div>
+        </div>
+    </div>
+    </body>
 </html>

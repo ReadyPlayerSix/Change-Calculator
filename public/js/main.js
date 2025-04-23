@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Add event listener to the reset button
   resetButton.addEventListener('click', resetCalculator);
   
+  // ============================
   // Function to calculate change
   function calculateChange() {
     // Get input values and convert to numbers
@@ -74,8 +75,12 @@ document.addEventListener('DOMContentLoaded', function() {
     dimesDisplay.textContent = results.dimes;
     nickelsDisplay.textContent = results.nickels;
     penniesDisplay.textContent = results.pennies;
+
+    // Add the drawer-open class to animate the drawer
+    document.querySelector('.output-section').classList.add('drawer-open');
   }
 
+  // ============================
   // Function to reset calculator
   function resetCalculator() {
     // Reset input fields
@@ -94,5 +99,8 @@ document.addEventListener('DOMContentLoaded', function() {
     dimesDisplay.textContent = '0';
     nickelsDisplay.textContent = '0';
     penniesDisplay.textContent = '0';
+
+    // Close the drawer
+    document.querySelector('.output-section').classList.remove('drawer-open');
   }
 });

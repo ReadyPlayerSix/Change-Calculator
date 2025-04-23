@@ -17,19 +17,24 @@ body {
 /*======================*/
 /* Calculator container */
 /*======================*/
+
+/* Modify calculator container for register look */
 .calculator-container {
   max-width: 800px;
   margin: 0 auto;
-  background-color: white;
+  background-color: #333;
+  /* Darker background for register look */
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  /* Deeper shadow */
+  border: 5px solid #222;
+  /* For more physical appearance */
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #333;
+/* Update headings for the dark background */
+.calculator-container h1 {
+  color: #fff;
 }
 
 h2 {
@@ -43,7 +48,12 @@ h2 {
 .input-section {
   margin-bottom: 30px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #444;
+  /* Darker border for contrast */
+  background-color: #2a2a2a;
+  /* Slightly lighter than main background */
+  padding: 15px;
+  border-radius: 5px;
 }
 
 .input-group {
@@ -64,6 +74,7 @@ input[type="number"] {
   font-size: 16px;
 }
 
+/* Base button styling */
 button {
   background-color: #4CAF50;
   color: white;
@@ -72,9 +83,21 @@ button {
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
-  display: block;
-  width: 100%;
+}
+
+/* Button group for side-by-side buttons */
+.button-group {
+  display: flex;
+  gap: 10px;
+  /* Space between buttons */
   margin-top: 10px;
+}
+
+.button-group button {
+  flex: 1;
+  /* Make buttons equal width */
+  margin-top: 0;
+  /* Remove the top margin since it's on the container now */
 }
 
 button:hover {
@@ -84,22 +107,44 @@ button:hover {
 /*========================*/
 /* Output section styling */
 /*========================*/
+
+/* Update output section for drawer effect */
 .output-section {
   padding-top: 10px;
+  background-color: #f0f0f0;
+  /* Light background for the drawer */
+  border-radius: 5px;
+  padding: 15px;
+  margin-top: 20px;
+  color: #333;
+  transition: all 0.5s ease-in-out;
+  overflow: hidden;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+  /* Inner shadow for depth */
 }
 
+/* Enhance denominations for drawer effect */
 .denominations {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 15px;
+  background-color: #e8e8e8;
+  border-top: 3px solid #ccc;
+  padding-top: 15px;
+  /* Starting state for animation */
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
 }
 
+/* Enhance denomination boxes to look like cash compartments */
 .denomination {
   background-color: #f9f9f9;
   padding: 15px;
   border-radius: 5px;
   text-align: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
 }
 
 .denomination h3 {
@@ -112,6 +157,14 @@ button:hover {
   font-size: 24px;
   font-weight: bold;
   color: #333;
+}
+
+/* Class to add when drawer opens */
+.drawer-open .denominations {
+  max-height: 500px;
+  /* Adjust based on your content */
+  opacity: 1;
+  padding: 15px;
 }
 
 /*===================*/
