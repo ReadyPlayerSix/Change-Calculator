@@ -17,167 +17,215 @@ body {
 /*======================*/
 /* Calculator container */
 /*======================*/
-
-/* Modify calculator container for register look */
 .calculator-container {
-  max-width: 800px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 20px;
+  max-width: 900px;
   margin: 0 auto;
   background-color: #333;
-  /* Darker background for register look */
-  padding: 30px;
+  padding: 25px;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  /* Deeper shadow */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   border: 5px solid #222;
-  /* For more physical appearance */
-}
-
-/* Update headings for the dark background */
-.calculator-container h1 {
-  color: #fff;
-}
-
-h2 {
-  margin-bottom: 15px;
-  color: #444;
 }
 
 /*=======================*/
-/* Input section styling */
+/* Left section styling */
 /*=======================*/
-.input-section {
-  margin-bottom: 30px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #444;
-  /* Darker border for contrast */
-  background-color: #2a2a2a;
-  /* Slightly lighter than main background */
+.register-left {
+  grid-column: 1;
+  grid-row: 1;
   padding: 15px;
-  border-radius: 5px;
+  background-color: #2a2a2a;
+  border-radius: 8px;
 }
 
-.input-group {
-  margin-bottom: 15px;
+/* Digital display styling */
+.digital-display {
+  background-color: #1a1a1a;
+  border: 3px inset #333;
+  padding: 15px;
+  margin-bottom: 20px;
+  font-family: 'Courier New', monospace;
+  /* Digital-like font */
 }
 
-label {
-  display: block;
-  margin-bottom: 5px;
+.display-amount {
+  color: #00ff00;
+  /* Classic green LED color */
+  font-size: 32px;
+  text-align: right;
   font-weight: bold;
+  letter-spacing: 2px;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
 }
 
-input[type="number"] {
+/* Number pad styling */
+.number-pad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.num-btn,
+.reset-btn {
+  padding: 15px 0;
+  font-size: 24px;
+  background: linear-gradient(to bottom, #f0f0f0, #d0d0d0);
+  border: 2px outset #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.num-btn:active,
+.reset-btn:active {
+  border-style: inset;
+  background: linear-gradient(to bottom, #d0d0d0, #e0e0e0);
+  transform: translateY(2px);
+}
+
+.reset-btn {
+  background: linear-gradient(to bottom, #ff9999, #ff6666);
+  color: white;
+}
+
+/* Calculate button styling */
+#calculate-change {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 16px;
-}
-
-/* Base button styling */
-button {
+  padding: 15px;
   background-color: #4CAF50;
   color: white;
   border: none;
-  padding: 12px 20px;
-  border-radius: 4px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
-  font-size: 16px;
+  transition: background-color 0.3s;
 }
 
-/* Button group for side-by-side buttons */
-.button-group {
-  display: flex;
-  gap: 10px;
-  /* Space between buttons */
-  margin-top: 10px;
-}
-
-.button-group button {
-  flex: 1;
-  /* Make buttons equal width */
-  margin-top: 0;
-  /* Remove the top margin since it's on the container now */
-}
-
-button:hover {
+#calculate-change:hover {
   background-color: #45a049;
 }
 
 /*========================*/
-/* Output section styling */
+/* Right section styling */
 /*========================*/
-
-/* Update output section for drawer effect */
-.output-section {
-  padding-top: 10px;
-  background-color: #f0f0f0;
-  /* Light background for the drawer */
-  border-radius: 5px;
-  padding: 15px;
-  margin-top: 20px;
-  color: #333;
-  transition: all 0.5s ease-in-out;
-  overflow: hidden;
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
-  /* Inner shadow for depth */
+.register-right {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-left: 2px dashed #aaa;
+  font-family: 'Courier New', monospace;
+  border-radius: 0 8px 8px 0;
 }
 
-/* Enhance denominations for drawer effect */
-.denominations {
+.receipt {
+  background-color: white;
+  padding: 15px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  min-height: 100%;
+}
+
+.receipt-header {
+  text-align: center;
+  font-weight: bold;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #ccc;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.receipt-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 5px;
+  border-bottom: 1px dotted #eee;
+}
+
+.item-name {
+  font-weight: bold;
+}
+
+/*=========================*/
+/* Cash drawer styling */
+/*=========================*/
+.cash-drawer {
+  grid-column: 1;
+  grid-row: 2;
+  border: 5px solid #555;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.bills-section {
+  background-color: #e8e8e8;
+  padding: 20px;
+  border-bottom: 3px solid #999;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  min-height: 180px;
+  /* Taller than coins section */
+}
+
+.coins-section {
+  background-color: #d8d8d8;
+  padding: 15px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-  background-color: #e8e8e8;
-  border-top: 3px solid #ccc;
-  padding-top: 15px;
-  /* Starting state for animation */
-  max-height: 0;
-  opacity: 0;
-  transition: all 0.5s ease-in-out;
-}
-
-/* Enhance denomination boxes to look like cash compartments */
-.denomination {
-  background-color: #f9f9f9;
-  padding: 15px;
-  border-radius: 5px;
-  text-align: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ddd;
-}
-
-.denomination h3 {
-  font-size: 16px;
-  margin-bottom: 10px;
-  color: #555;
-}
-
-.denomination p {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-}
-
-/* Class to add when drawer opens */
-.drawer-open .denominations {
-  max-height: 500px;
-  /* Adjust based on your content */
-  opacity: 1;
-  padding: 15px;
+  gap: 10px;
+  min-height: 100px;
 }
 
 /*===================*/
 /* Responsive design */
 /*===================*/
 @media (max-width: 768px) {
-  .denominations {
-    grid-template-columns: repeat(2, 1fr);
+  .calculator-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .register-left {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .register-right {
+    grid-column: 1;
+    grid-row: 3;
+    border-left: none;
+    border-top: 2px dashed #aaa;
+    padding-top: 20px;
+  }
+
+  .cash-drawer {
+    grid-column: 1;
+    grid-row: 2;
   }
 }
 
 @media (max-width: 480px) {
-  .denominations {
-    grid-template-columns: 1fr;
+  .number-pad {
+    gap: 5px;
+  }
+
+  .num-btn,
+  .reset-btn {
+    padding: 10px 0;
+    font-size: 20px;
+  }
+
+  .bills-section,
+  .coins-section {
+    grid-template-columns: 1fr 1fr;
   }
 }
