@@ -1,4 +1,6 @@
+/*==============================*/
 /* Basic reset and page styling */
+/*==============================*/
 * {
   box-sizing: border-box;
   margin: 0;
@@ -12,7 +14,9 @@ body {
   padding: 20px;
 }
 
+/*======================*/
 /* Calculator container */
+/*======================*/
 .calculator-container {
   max-width: 800px;
   margin: 0 auto;
@@ -33,7 +37,9 @@ h2 {
   color: #444;
 }
 
+/*=======================*/
 /* Input section styling */
+/*=======================*/
 .input-section {
   margin-bottom: 30px;
   padding-bottom: 20px;
@@ -75,7 +81,9 @@ button:hover {
   background-color: #45a049;
 }
 
+/*========================*/
 /* Output section styling */
+/*========================*/
 .output-section {
   padding-top: 10px;
 }
@@ -106,7 +114,9 @@ button:hover {
   color: #333;
 }
 
+/*===================*/
 /* Responsive design */
+/*===================*/
 @media (max-width: 768px) {
   .denominations {
     grid-template-columns: repeat(2, 1fr);

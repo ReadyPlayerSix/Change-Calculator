@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const amountDueInput = document.getElementById('amount-due');
   const amountReceivedInput = document.getElementById('amount-received');
   const calculateButton = document.getElementById('calculate-change');
+  const resetButton = document.getElementById('reset-calculation');
   const totalChangeDisplay = document.getElementById('total-change');
   
   // Get references to all denomination elements
@@ -19,6 +20,9 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Add event listener to the calculate button
   calculateButton.addEventListener('click', calculateChange);
+
+  // Add event listener to the reset button
+  resetButton.addEventListener('click', resetCalculator);
   
   // Function to calculate change
   function calculateChange() {
@@ -70,5 +74,25 @@ document.addEventListener('DOMContentLoaded', function() {
     dimesDisplay.textContent = results.dimes;
     nickelsDisplay.textContent = results.nickels;
     penniesDisplay.textContent = results.pennies;
+  }
+
+  // Function to reset calculator
+  function resetCalculator() {
+    // Reset input fields
+    amountDueInput.value = '';
+    amountReceivedInput.value = '';
+
+    // Reset the total change display
+    totalChangeDisplay.textContent = '$0.00';
+
+    // Reset each denomination display
+    twentiesDisplay.textContent = '0';
+    tensDisplay.textContent = '0';
+    fivesDisplay.textContent = '0';
+    onesDisplay.textContent = '0';
+    quartersDisplay.textContent = '0';
+    dimesDisplay.textContent = '0';
+    nickelsDisplay.textContent = '0';
+    penniesDisplay.textContent = '0';
   }
 });
