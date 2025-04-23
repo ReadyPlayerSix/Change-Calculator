@@ -12,81 +12,128 @@
     </head>
 
     <body>
-    <!-- Main structure for the new layout -->
-    <div class="calculator-container">
-        <!-- Left section: Display and number pad -->
-        <div class="register-left">
-            <!-- Digital display -->
-            <div class="digital-display">
-                <div class="display-amount">$0.00</div>
+        <!-- Main structure for the new layout -->
+        <div class="calculator-container">
+            <!-- Left section: Display and number pad -->
+            <div class="register-left">
+                <!-- Digital display -->
+                <div class="digital-display">
+                    <div class="display-amount">$0.00</div>
+                </div>
+
+                <!-- Number pad -->
+                <div class="number-pad">
+                    <button class="num-btn">7</button>
+                    <button class="num-btn">8</button>
+                    <button class="num-btn">9</button>
+                    <button class="num-btn">4</button>
+                    <button class="num-btn">5</button>
+                    <button class="num-btn">6</button>
+                    <button class="num-btn">1</button>
+                    <button class="num-btn">2</button>
+                    <button class="num-btn">3</button>
+                    <button class="num-btn">0</button>
+                    <button class="num-btn">.</button>
+                    <button class="reset-btn">C</button>
+                </div>
+                <button id="calculate-change">Total Change Due</button>
             </div>
 
-            <!-- Number pad -->
-            <div class="number-pad">
-                <button class="num-btn">7</button>
-                <button class="num-btn">8</button>
-                <button class="num-btn">9</button>
-                <button class="num-btn">4</button>
-                <button class="num-btn">5</button>
-                <button class="num-btn">6</button>
-                <button class="num-btn">1</button>
-                <button class="num-btn">2</button>
-                <button class="num-btn">3</button>
-                <button class="num-btn">0</button>
-                <button class="num-btn">.</button>
-                <button class="reset-btn">C</button>
+            <!-- Right section: Receipt -->
+            <div class="register-right">
+                <div class="receipt">
+                    <div class="receipt-header">CHANGE DUE</div>
+                    <div class="receipt-item">
+                        <span class="item-name">Twenties</span>
+                        <span id="twenties">0</span>
+                    </div>
+                    <div class="receipt-item">
+                        <span class="item-name">Tens</span>
+                        <span id="tens">0</span>
+                    </div>
+                    <div class="receipt-item">
+                        <span class="item-name">Fives</span>
+                        <span id="fives">0</span>
+                    </div>
+                    <div class="receipt-item">
+                        <span class="item-name">Ones</span>
+                        <span id="ones">0</span>
+                    </div>
+                    <div class="receipt-item">
+                        <span class="item-name">Quarters</span>
+                        <span id="quarters">0</span>
+                    </div>
+                    <div class="receipt-item">
+                        <span class="item-name">Dimes</span>
+                        <span id="dimes">0</span>
+                    </div>
+                    <div class="receipt-item">
+                        <span class="item-name">Nickels</span>
+                        <span id="nickels">0</span>
+                    </div>
+                    <div class="receipt-item">
+                        <span class="item-name">Pennies</span>
+                        <span id="pennies">0</span>
+                    </div>
+                </div>
             </div>
-            <button id="calculate-change">Total Change Due</button>
-        </div>
 
-        <!-- Right section: Receipt -->
-        <div class="register-right">
-            <div class="receipt">
-                <div class="receipt-header">CHANGE DUE</div>
-                <div class="receipt-item">
-                    <span class="item-name">Twenties</span>
-                    <span id="twenties">0</span>
+            <!-- Cash drawer section -->
+            <div class="cash-drawer">
+                <div class="bills-section">
+                    <!-- Bill denominations -->
+                    <div class="denomination-slot">
+                        <div class="slot-label">$20</div>
+                        <div class="slot-bills" id="twenties-slot"></div>
+                    </div>
+                    <div class="denomination-slot">
+                        <div class="slot-label">$10</div>
+                        <div class="slot-bills" id="tens-slot"></div>
+                    </div>
+                    <div class="denomination-slot">
+                        <div class="slot-label">$5</div>
+                        <div class="slot-bills" id="fives-slot"></div>
+                    </div>
+                    <div class="denomination-slot">
+                        <div class="slot-label">$1</div>
+                        <div class="slot-bills" id="ones-slot"></div>
+                    </div>
                 </div>
-                <div class="receipt-item">
-                    <span class="item-name">Tens</span>
-                    <span id="tens">0</span>
-                </div>
-                <div class="receipt-item">
-                    <span class="item-name">Fives</span>
-                    <span id="fives">0</span>
-                </div>
-                <div class="receipt-item">
-                    <span class="item-name">Ones</span>
-                    <span id="ones">0</span>
-                </div>
-                <div class="receipt-item">
-                    <span class="item-name">Quarters</span>
-                    <span id="quarters">0</span>
-                </div>
-                <div class="receipt-item">
-                    <span class="item-name">Dimes</span>
-                    <span id="dimes">0</span>
-                </div>
-                <div class="receipt-item">
-                    <span class="item-name">Nickels</span>
-                    <span id="nickels">0</span>
-                </div>
-                <div class="receipt-item">
-                    <span class="item-name">Pennies</span>
-                    <span id="pennies">0</span>
+                <div class="coins-section">
+                    <!-- Coin denominations -->
+                    <div class="denomination-slot">
+                        <div class="slot-label">25¢</div>
+                        <div class="slot-coins" id="quarters-slot"></div>
+                    </div>
+                    <div class="denomination-slot">
+                        <div class="slot-label">10¢</div>
+                        <div class="slot-coins" id="dimes-slot"></div>
+                    </div>
+                    <div class="denomination-slot">
+                        <div class="slot-label">5¢</div>
+                        <div class="slot-coins" id="nickels-slot"></div>
+                    </div>
+                    <div class="denomination-slot">
+                        <div class="slot-label">1¢</div>
+                        <div class="slot-coins" id="pennies-slot"></div>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <!-- Cash drawer section -->
-        <div class="cash-drawer">
-            <div class="bills-section">
-                <!-- Bill denominations -->
-            </div>
-            <div class="coins-section">
-                <!-- Coin denominations -->
+        <div class="check-container">
+            <div class="check">
+                <div class="check-header">
+                    <div class="check-date">DATE: <span class="current-date"></span></div>
+                </div>
+                <div class="check-amount-section">
+                    <div class="check-amount-prefix">$</div>
+                    <input type="text" id="check-amount" class="check-amount-input" placeholder="0.00">
+                </div>
+                <div class="check-signature">
+                    <span>Signature</span>
+                    <div class="signature-line"></div>
+                </div>
             </div>
         </div>
-    </div>
     </body>
 </html>
