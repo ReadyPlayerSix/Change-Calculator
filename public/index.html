@@ -37,12 +37,59 @@
                     <button class="reset-btn">C</button>
                 </div>
                 <button id="calculate-change">Total Change Due</button>
+                
+                <!-- Cash drawer section (moved inside register-left) -->
+                <div class="cash-drawer">
+                    <div class="bills-section">
+                        <!-- Bill denominations -->
+                        <div class="denomination-slot">
+                            <div class="slot-label">$20</div>
+                            <div class="slot-bills" id="twenties-slot"></div>
+                        </div>
+                        <div class="denomination-slot">
+                            <div class="slot-label">$10</div>
+                            <div class="slot-bills" id="tens-slot"></div>
+                        </div>
+                        <div class="denomination-slot">
+                            <div class="slot-label">$5</div>
+                            <div class="slot-bills" id="fives-slot"></div>
+                        </div>
+                        <div class="denomination-slot">
+                            <div class="slot-label">$1</div>
+                            <div class="slot-bills" id="ones-slot"></div>
+                        </div>
+                    </div>
+                    <div class="coins-section">
+                        <!-- Coin denominations -->
+                        <div class="denomination-slot">
+                            <div class="slot-label">25¢</div>
+                            <div class="slot-coins" id="quarters-slot"></div>
+                        </div>
+                        <div class="denomination-slot">
+                            <div class="slot-label">10¢</div>
+                            <div class="slot-coins" id="dimes-slot"></div>
+                        </div>
+                        <div class="denomination-slot">
+                            <div class="slot-label">5¢</div>
+                            <div class="slot-coins" id="nickels-slot"></div>
+                        </div>
+                        <div class="denomination-slot">
+                            <div class="slot-label">1¢</div>
+                            <div class="slot-coins" id="pennies-slot"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Right section: Receipt -->
             <div class="register-right">
                 <div class="receipt">
-                    <div class="receipt-header">CHANGE DUE</div>
+                    <div class="receipt-header"></div>
+                    <div class="receipt-store">
+                        <p>UI/UX design by Claro Runtal</p>
+                        <p>Thank you for your business!</p>
+                        <p>===============================</p>
+                    </div>
                     <div class="receipt-item">
                         <span class="item-name">Twenties</span>
                         <span id="twenties">0</span>
@@ -75,53 +122,23 @@
                         <span class="item-name">Pennies</span>
                         <span id="pennies">0</span>
                     </div>
+                    <div class="receipt-footer">
+                        <p>===============================</p>
+                        <p>TOTAL CHANGE: $<span id="total-change-amount">0.00</span></p>
+                        <p>Transaction ID: #8675309</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Cash drawer section -->
-            <div class="cash-drawer">
-                <div class="bills-section">
-                    <!-- Bill denominations -->
-                    <div class="denomination-slot">
-                        <div class="slot-label">$20</div>
-                        <div class="slot-bills" id="twenties-slot"></div>
-                    </div>
-                    <div class="denomination-slot">
-                        <div class="slot-label">$10</div>
-                        <div class="slot-bills" id="tens-slot"></div>
-                    </div>
-                    <div class="denomination-slot">
-                        <div class="slot-label">$5</div>
-                        <div class="slot-bills" id="fives-slot"></div>
-                    </div>
-                    <div class="denomination-slot">
-                        <div class="slot-label">$1</div>
-                        <div class="slot-bills" id="ones-slot"></div>
-                    </div>
-                </div>
-                <div class="coins-section">
-                    <!-- Coin denominations -->
-                    <div class="denomination-slot">
-                        <div class="slot-label">25¢</div>
-                        <div class="slot-coins" id="quarters-slot"></div>
-                    </div>
-                    <div class="denomination-slot">
-                        <div class="slot-label">10¢</div>
-                        <div class="slot-coins" id="dimes-slot"></div>
-                    </div>
-                    <div class="denomination-slot">
-                        <div class="slot-label">5¢</div>
-                        <div class="slot-coins" id="nickels-slot"></div>
-                    </div>
-                    <div class="denomination-slot">
-                        <div class="slot-label">1¢</div>
-                        <div class="slot-coins" id="pennies-slot"></div>
-                    </div>
-                </div>
-            </div>
+            <!-- Cash drawer section moved inside register-left -->
         </div>
         <div class="check-container">
             <div class="check">
+                <div class="check-address">
+                    <p>A <a href="https://learn.cccareers.org" target="_blank">Creating Coding Careers</a> Project</p>
+                    <p>6785 Imperial Ave</p>
+                    <p>San Diego, CA 92114</p>
+                </div>
                 <div class="check-header">
                     <div class="check-date">DATE: <span class="current-date"></span></div>
                 </div>
@@ -133,6 +150,9 @@
                     <span>Signature</span>
                     <div class="signature-line"></div>
                 </div>
+            </div>
+            <div class="check-source-code">
+                <a href="https://github.com/ReadyPlayerSix/Change-Calculator" target="blank" class="micr-font">⑆123456789⑆ 022000046⑈</a>
             </div>
         </div>
     </body>

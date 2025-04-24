@@ -46,6 +46,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  // Add the new showError function here
+  function showError(message) {
+    // Change the display color to red for errors
+    displayAmount.classList.add('display-error');
+    displayAmount.textContent = message || '---ERROR---';
+
+    // Reset back to normal after a delay
+    setTimeout(() => {
+      displayAmount.classList.remove('display-error');
+      updateDisplay();  // Reset to normal display
+    }, 3000);  // Reset after 3 seconds
+  }
+
   // Add event listeners to number buttons
   numberButtons.forEach(button => {
     button.addEventListener('click', function () {
@@ -115,35 +128,19 @@ document.addEventListener('DOMContentLoaded', function () {
   function createMoneyElements(count, type) {
     const container = document.createElement('div');
     container.className = `money-container ${type}-container`;
-    
-    // Limit the display to a reasonable number
-    const displayCount = Math.min(count, 10);
-    
-    for (let i = 0; i < displayCount; i++) {
-      const money = document.createElement('div');
-      money.className = `money ${type}`;
-      
-      // Add slight random rotation for natural look
-      const rotation = Math.random() * 10 - 5; // -5 to 5 degrees
-      money.style.transform = `rotate(${rotation}deg)`;
-      
-      // Add text label based on type
-      if (type === 'bill-20') money.textContent = '$20';
-      if (type === 'bill-10') money.textContent = '$10';
-      if (type === 'bill-5') money.textContent = '$5';
-      if (type === 'bill-1') money.textContent = '$1';
-      
-      container.appendChild(money);
-    }
-    
-    // If there are more than we're displaying, add an indicator
-    if (count > displayCount) {
-      const more = document.createElement('div');
-      more.className = 'more-indicator';
-      more.textContent = `+${count - displayCount} more`;
-      container.appendChild(more);
-    }
-    
+
+    // Create just one bill/coin with the count
+    const money = document.createElement('div');
+    money.className = `money ${type}`;
+
+    // Add text label based on type with count
+    if (type === 'bill-20') money.innerHTML = '$20<br>x' + count;
+    if (type === 'bill-10') money.innerHTML = '$10<br>x' + count;
+    if (type === 'bill-5') money.innerHTML = '$5<br>x' + count;
+    if (type === 'bill-1') money.innerHTML = '$1<br>x' + count;
+
+    container.appendChild(money);
+
     return container;
   }
 
@@ -156,15 +153,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Check if we can make change (received amount is sufficient)
     if (received < due) {
-      alert('The amount received is less than the amount due. Please enter valid amounts.');
+      showError('--INSUFFICIENT FUNDS--')
       return;
     }
 
     // Calculate total change
     let totalChange = received - due;
 
-    // Display total change with 2 decimal places
+    // Display total change on Display
     displayAmount.textContent = '$' + totalChange.toFixed(2);
+
+    // Display total change on Receipt
+    document.getElementById('total-change-amount').textContent = totalChange.toFixed(2);
 
     // Convert total change to cents to avoid floating-point issues
     let remainingChangeInCents = Math.round(totalChange * 100);
@@ -227,10 +227,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     
     // Add simple text indicators for coins
-    if (results.quarters > 0) quartersSlot.textContent = '×' + results.quarters;
-    if (results.dimes > 0) dimesSlot.textContent = '×' + results.dimes;
-    if (results.nickels > 0) nickelsSlot.textContent = '×' + results.nickels;
-    if (results.pennies > 0) penniesSlot.textContent = '×' + results.pennies;
+    if (results.quarters > 0) quartersSlot.textContent = 'x' + results.quarters;
+    if (results.dimes > 0) dimesSlot.textContent = 'x' + results.dimes;
+    if (results.nickels > 0) nickelsSlot.textContent = 'x' + results.nickels;
+    if (results.pennies > 0) penniesSlot.textContent = 'x' + results.pennies;
 
     // Animate the cash drawer or receipt as needed
     document.querySelector('.cash-drawer').classList.add('drawer-open');
@@ -246,6 +246,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Reset the display
     updateDisplay();
+
+    // Reset receipt total
+    document.getElementById('total-change-amount').textContent = '0.00';
 
     // Reset each denomination display
     twentiesDisplay.textContent = '0';
@@ -281,7 +284,6 @@ document.addEventListener('DOMContentLoaded', function () {
   setTimeout(() => {
     if (checkAmountInput) {
       checkAmountInput.focus();
-      console.log("Attempted to focus check input");
     }
   }, 1000);
 });
