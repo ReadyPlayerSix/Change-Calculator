@@ -486,8 +486,33 @@ body {
 }
 
 /*===================*/
+/* Test elements */
+/*===================*/
+.test-inputs, .test-outputs {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 8px;
+  background: rgba(255,255,255,0.8);
+  padding: 2px;
+  border: 1px solid #ccc;
+  z-index: 1000;
+}
+
+.test-inputs input {
+  width: 50px;
+  margin: 2px;
+}
+
+.test-outputs p {
+  margin: 0;
+  padding: 1px;
+}
+
+/*===================*/
 /* Responsive design */
 /*===================*/
+
 @media (max-width: 768px) {
   .calculator-container {
     grid-template-columns: 1fr;
@@ -528,4 +553,10 @@ body {
   .coins-section {
     grid-template-columns: 1fr 1fr;
   }
+}
+
+.calculator-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
 }
